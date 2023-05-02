@@ -2,7 +2,13 @@
 
 - > RODANDO O PROJETO COM GO
   
-GO É ESTATICAMENTE TIPADO -> PRECISA DE DECLARAR TIPO DA VARIAVEL
+GO É ESTA
+
+TICAMENTE TIPADO -> PRECISA DE DECLARAR TIPO DA VARIAVEL
+
+GP Ñ É UMA LINGUAGEM ORIENTADA A OBJETOS, É UMA LINGUAGEM ORIENTADA A METODOS
+Não temos a ideia definida de classes, mas temos a ideia de tipos e métodos associados a esses tipos
+
 
 ***O que é um pacote em go?*** 
 
@@ -24,6 +30,9 @@ Existem 2 tipos de pacotes com Go
 **REMINDER** Sempre deverá ter um arquivo main.go dentro do pacote main, é must have 
 
 :: O que são os imports em go?
+
+Arquivoos no mesmo pacote não precisam de import**
+
 -> Import - Forma de importar pacotes externos ou locais para dentro do seu código
 Dê acesso ao meu pacote main a funcionalidade fmt do pacote padrão do go, ou a que estiver importada.
 
@@ -38,3 +47,55 @@ Dê acesso ao meu pacote main a funcionalidade fmt do pacote padrão do go, ou a
 
 -> Declaração de constantes - Forma de declarar constantes em go 
 
+-> Array e Slices - Forma de declarar arrays e slices em go
+ARRAY - NUMERO FIXO
+
+var cards [2]string // declaração de um array de string, com 2 elementos.
+
+SLICE - NUMERO VARIAVEL. Declaração de um slice:
+
+cards := []string{"Ace of Diamonds", newCard()} //
+criamos um slice de string, com 2 elementos, o primeiro é uma string e o segundo é uma função que retorna uma string
+
+
+No SLICE, OS TIPOS DE DATA TEM QUE SER =, só string, só int etc.
+
+ADICIONAR CAMPO NO SLICE - cards = append(cards, "Six of Spades") // adiciona um elemento no slice
+
+Difeença entre array e slice em termos de desempenho e busca de dados:
+ O Array é mais rápido, pois ele já sabe o tamanho do array, já o slice não, ele precisa percorrer todo o slice para saber o tamanho dele.
+
+:: O que são os loops em go?
+-> Loops - Forma de criar loops em go
+ for i, card := range cards {
+        fmt.Println(i, card)
+    }
+
+O range é uma função que retorna 2 valores, o index e o value, o index é o index do elemento no slice e o value é o valor do elemento no slice
+
+OO VS GO APPROACH
+
+![oo approach.PNG](..%2F..%2F..%2FDesktop%2FimagensEstudos%2Foo%20approach.PNG)
+
+![go approach.PNG](..%2F..%2F..%2FDesktop%2FimagensEstudos%2Fgo%20approach.PNG)
+
+:: O que são types em go?
+-> Types - Forma de criar tipos em go
+type deck []string // declaração de um tipo deck, que é um slice de string
+
+Uma função com um "receiver" é como se fosse um método de uma classe, só que não é uma classe, é um tipo
+
+Logo, se criarmos por exemplo, esse type deck citado, os métodos só funcionam COM ELE.
+
+:: O que são receivers em go?
+-> Receivers - Forma de criar receivers em go
+
+
+
+func (d deck) print() { // função print com um receiver do tipo deck
+    for i, card := range d {
+        fmt.Println(i, card)
+    }
+}
+
+REFAZER TESTE 5 
