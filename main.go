@@ -1,9 +1,9 @@
 package main
 
-import "fmt"
-
 func main() {
-	card := "lucas"
-	card = "lucas2"
-	fmt.Println(card)
+	cards := newDeck()
+	hand, remainingCards := deal(cards, 5)
+
+	hand.print()
+	remainingCards.print()
 }

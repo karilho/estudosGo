@@ -98,4 +98,4 @@ func (d deck) print() { // função print com um receiver do tipo deck
     }
 }
 
-REFAZER TESTE 5 
+PAREI NA AULA 24
