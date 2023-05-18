@@ -56,7 +56,7 @@ SLICE - NUMERO VARIAVEL. Declaração de um slice:
 
 cards := []string{"Ace of Diamonds", newCard()} //
 criamos um slice de string, com 2 elementos, o primeiro é uma string e o segundo é uma função que retorna uma string
-
+ -> TODA VEZ QUE EU VER [] É SLICE DE ALGO.
 
 No SLICE, OS TIPOS DE DATA TEM QUE SER =, só string, só int etc.
 
@@ -89,8 +89,8 @@ Logo, se criarmos por exemplo, esse type deck citado, os métodos só funcionam 
 
 :: O que são receivers em go?
 -> Receivers - Forma de criar receivers em go
-
-
+Explicado o que é receiver: Uma função com um "receiver" é como se fosse um método de uma classe, só que não é uma classe, é um tipo
+ 
 
 func (d deck) print() { // função print com um receiver do tipo deck
     for i, card := range d {
@@ -98,4 +98,65 @@ func (d deck) print() { // função print com um receiver do tipo deck
     }
 }
 
-PAREI NA AULA 24
+O que são structs em go?
+-> Structs - Forma de criar structs em go
+type person struct {
+    firstName string
+    lastName  string
+}
+
+-> Structs embutidos - Forma de criar structs embutidos em go
+type contactInfo struct {
+    email   string
+    zipCode int
+}
+
+type person struct {
+    firstName string
+    lastName  string
+    contact   contactInfo
+}
+
+-> Structs embutidos com atalho - Forma de criar structs embutidos com atalho em go
+
+type person struct {
+    firstName string
+    lastName  string
+    contactInfo
+}
+
+-> ponteiros em go
+-> Ponteiros - Forma de criar ponteiros em go
+func (pointerToPerson *person) updateName(newFirstName string) {
+    (*pointerToPerson).firstName = newFirstName
+}
+
+O * aponta para o endereço (001) de memória da variável, o & retorna o valor ([])do endereço de memória da variável
+
+INTERFACES EM GO -> 
+ Usamos para simplificar código,como funciona? 
+Você cria a type interface, como se fosse um struct e bota os métodos dentro
+
+Todas as funcs que possuirem esse MÉTODO =, vão assinar a interface
+
+Porém, você define através do RECEIVER QUE VAI TA NO MÉTODO.
+Exemplo:
+ type bot interface {
+    getGreeting() string
+
+ func printGreeting(b bot) {
+    fmt.Println(b.getGreeting())
+
+func (englishBot) getGreeting() string {
+    // VERY custom logic for generating an english greeting
+    return "Hi There!"
+}
+
+func (spanishBot) getGreeting() string {
+    // VERY custom logic for generating an spanish greeting
+    return "Hola!"
+}
+
+
+
+
